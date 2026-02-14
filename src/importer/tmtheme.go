@@ -8,13 +8,18 @@ import (
 	"github.com/orchestra-mcp/themes/src/types"
 )
 
+const (
+	themeDark  = "dark"
+	themeLight = "light"
+)
+
 // tmTheme global color mappings to Orchestra keys.
 var tmGlobalColorMap = map[string]string{
-	"background":     "bg-primary",
-	"foreground":     "text-primary",
-	"caret":          "caret",
-	"selection":      "bg-selection",
-	"lineHighlight":  "bg-line-highlight",
+	"background":    "bg-primary",
+	"foreground":    "text-primary",
+	"caret":         "caret",
+	"selection":     "bg-selection",
+	"lineHighlight": "bg-line-highlight",
 }
 
 // ImportTmTheme parses a .tmTheme plist XML file into a ThemeDef.
@@ -116,12 +121,12 @@ func detectThemeType(colors map[string]string) string {
 		bg = colors["raw.background"]
 	}
 	if bg == "" {
-		return "dark"
+		return themeDark
 	}
 	if isLightColor(bg) {
-		return "light"
+		return themeLight
 	}
-	return "dark"
+	return themeDark
 }
 
 // isLightColor returns true if a hex color is considered light.

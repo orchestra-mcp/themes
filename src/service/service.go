@@ -23,7 +23,7 @@ type ThemesService struct {
 }
 
 // New creates a ThemesService with built-in themes loaded.
-func New(storagePath string, defaultTheme string, logger zerolog.Logger) *ThemesService {
+func New(storagePath, defaultTheme string, logger zerolog.Logger) *ThemesService {
 	svc := &ThemesService{
 		themes:      make(map[string]*types.ThemeDef),
 		activeID:    defaultTheme,

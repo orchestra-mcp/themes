@@ -10,14 +10,14 @@ import (
 
 // vscodeColorMap maps VS Code color keys to Orchestra color keys.
 var vscodeColorMap = map[string]string{
-	"editor.background":                "bg-primary",
-	"editor.foreground":                "text-primary",
-	"sideBar.background":               "bg-secondary",
-	"activityBar.background":           "bg-tertiary",
-	"statusBar.background":             "bg-accent",
-	"titleBar.activeBackground":        "bg-header",
-	"focusBorder":                      "border-focus",
-	"list.activeSelectionBackground":   "bg-selection",
+	"editor.background":              "bg-primary",
+	"editor.foreground":              "text-primary",
+	"sideBar.background":             "bg-secondary",
+	"activityBar.background":         "bg-tertiary",
+	"statusBar.background":           "bg-accent",
+	"titleBar.activeBackground":      "bg-header",
+	"focusBorder":                    "border-focus",
+	"list.activeSelectionBackground": "bg-selection",
 }
 
 // vscodeThemeFile represents the top-level VS Code theme JSON structure.
@@ -104,7 +104,7 @@ func ImportVSCode(data []byte) (*types.ThemeDef, error) {
 
 // mapVSCodeColors maps VS Code color keys to Orchestra keys
 // and stores unmapped keys under the "raw." prefix.
-func mapVSCodeColors(src map[string]string, dst map[string]string) {
+func mapVSCodeColors(src, dst map[string]string) {
 	for key, value := range src {
 		if mapped, ok := vscodeColorMap[key]; ok {
 			dst[mapped] = value
